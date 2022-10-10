@@ -15,15 +15,16 @@ class Rps:
         
 
     def get_user_choice(self):
-        while True:
-            user_choice = str(input('please select Rock, Paper or Scissors or type "End Game" to end the game. Your choice: '))
+        count = 0
+        while count < 3:
+            user_choice = str(input('please select Rock, Paper or Scissors. Your choice: '))
             user_choice = user_choice.lower()
-            if user_choice == 'end game':
-                break
-            elif user_choice not in Rps.choice_list:
+            if user_choice not in Rps.choice_list:
                 print('error, please try again: ')
             else:
                 self.get_computer_choice(user_choice)
+                count += 1
+        print('Three games played. Game over')
 
     def get_winner(self, user_choice, computer_choice):
         if computer_choice == user_choice:
